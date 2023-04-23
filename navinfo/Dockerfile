@@ -4,11 +4,11 @@ LABEL com.navinfo.image.name="navinfo:fe"
 LABEL com.navinfo.image.authors="liunian7965"
 USER root:root
 
-ADD sources.list /etc/apt/
+ADD navinfo/sources.list /etc/apt/
 
-RUN npm add -g --force  npm \
-    && npm add -g --force pnpm \
-    && npm add -g --force yarn
+RUN npm add -g  npm \
+    && npm add -g pnpm \
+    && curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 CMD echo "nodejs 以及 npm 版本："; \
     node -v; \
