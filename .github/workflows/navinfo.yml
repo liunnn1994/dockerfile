@@ -16,6 +16,8 @@ jobs:
   build:
     name: Build on node ${{ matrix.node_version }} and ${{ matrix.os }}
     runs-on: ubuntu-latest
+    permissions:
+      repository-projects: write
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -70,7 +72,7 @@ jobs:
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
           git commit -am "Automated report"
-          
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
