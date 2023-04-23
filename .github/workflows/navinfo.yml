@@ -62,8 +62,8 @@ jobs:
           file: ./navinfo/Dockerfile
           push: true
           tags: |
-            ${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:latest
-            ${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:${{steps.set_var.outputs.VERSION}}
+            ${{ env.ALIYUN_REGISTRY }}/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:latest
+            ${{ env.ALIYUN_REGISTRY }}/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:${{steps.set_var.outputs.VERSION}}
 
       - name: Commit version
         run: |
