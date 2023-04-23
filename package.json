@@ -1,0 +1,16 @@
+{
+  "name": "auto-dockerfile",
+  "version": "0.0.1",
+  "description": "自动化生成 dockerfile 并上传至阿里云镜像仓库",
+  "author": {
+    "name": "liunnn1994",
+    "email": "liunian@2077tech.com"
+  },
+  "scripts": {
+    "navinfo":"node scripts/versions.mjs --project-key navinfo"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21",
+    "minimist": "^1.2.8"
+  }
+}
