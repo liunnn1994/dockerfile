@@ -17,6 +17,8 @@ jobs:
     name: Build on node ${{ matrix.node_version }} and ${{ matrix.os }}
     runs-on: ubuntu-latest
     permissions:
+      pull-requests: write
+      issues: write
       repository-projects: write
     strategy:
       matrix:
