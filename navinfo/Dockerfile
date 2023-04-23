@@ -6,9 +6,9 @@ USER root:root
 
 ADD sources.list /etc/apt/
 
-RUN npm add -g npm \
-    && npm add -g pnpm \
-    && npm add -g yarn
+RUN npm add -g --force  npm \
+    && npm add -g --force pnpm \
+    && npm add -g --force yarn
 
 CMD echo "nodejs 以及 npm 版本："; \
     node -v; \
