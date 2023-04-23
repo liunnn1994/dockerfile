@@ -38,7 +38,7 @@ jobs:
         id: set_var
         run: |
           content=`cat versions.json | jq -r '.navinfo'`
-          echo "VERSION=$content" >> "$GITHUB_ENV"
+          echo "IMAGE_VERSION=$content" >> "$GITHUB_ENV"
 
       # 设置 QEMU, 后面 docker buildx 依赖此.
       - name: Set up QEMU
@@ -64,7 +64,7 @@ jobs:
           push: true
           tags: |
             ${{ env.ALIYUN_REGISTRY }}/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:latest
-            ${{ env.ALIYUN_REGISTRY }}/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:${{steps.set_var.outputs.VERSION}}
+            ${{ env.ALIYUN_REGISTRY }}/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:${{env.IMAGE_VERSION}}
 
       - name: Commit files
         run: |
