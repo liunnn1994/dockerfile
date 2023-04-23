@@ -65,10 +65,14 @@ jobs:
             ${{ env.ALIYUN_REGISTRY }}/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:latest
             ${{ env.ALIYUN_REGISTRY }}/${{ env.ALIYUN_NAMESPACE }}/${{ env.ALIYUN_IMAGE_NAME }}:${{steps.set_var.outputs.VERSION}}
 
-      - name: Commit version
+      - name: Commit files
         run: |
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git commit -am "Automated report"
-          git push
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
