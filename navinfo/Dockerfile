@@ -8,6 +8,7 @@ ADD navinfo/sources.list /etc/apt/
 
 RUN npm add -g  npm \
     && npm add -g pnpm \
+    && npm add -g zx \
     && curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 CMD echo "nodejs 以及 npm 版本："; \
