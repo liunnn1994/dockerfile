@@ -4,9 +4,11 @@ LABEL com.navinfo.image.name="navinfo:fe"
 LABEL com.navinfo.image.authors="liunian7965"
 USER root:root
 
+ADD navinfo/resolved.conf /etc/systemd/
 ADD navinfo/sources.list /etc/apt/
 
-RUN npm add -g  npm \
+RUN chmod 644 /etc/systemd/resolved.conf \
+    && npm add -g npm \
     && npm add -g pnpm \
     && npm add -g zx \
     && curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
