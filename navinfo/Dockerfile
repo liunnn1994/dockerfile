@@ -5,7 +5,7 @@ LABEL com.navinfo.image.authors="liunian7965"
 USER root:root
 
 ADD navinfo/resolved.conf /etc/systemd/
-ADD navinfo/sources.list /etc/apt/
+# ADD navinfo/sources.list /etc/apt/
 
 RUN chmod 644 /etc/systemd/resolved.conf \
     && npm add -g npm \
