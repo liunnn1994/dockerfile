@@ -7,11 +7,8 @@ USER root:root
 ADD navinfo/resolved.conf /etc/systemd/
 ADD navinfo/sources.list /etc/apt/
 
-SHELL ["/bin/bash", "-c"]
-ENV NVM_DIR ~/.nvm
-
-RUN curl --compressed -o- -L https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-RUN $NVM_DIR/nvm.sh
+RUN curl --compressed -o- -L https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | sh
+RUN ~/.nvm/nvm.sh
 
 RUN chmod 644 /etc/systemd/resolved.conf \
     && mkdir -p ~/.npm_global \
@@ -26,7 +23,7 @@ RUN chmod 644 /etc/systemd/resolved.conf \
     && npm add -g npm \
     && npm add -g pnpm \
     && npm add -g zx \
-    && curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+    && curl --compressed -o- -L https://yarnpkg.com/install.sh | sh
 
 CMD echo "nodejs 以及 npm 版本："; \
     node -v; \
