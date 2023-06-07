@@ -11,7 +11,7 @@ SHELL ["/bin/bash", "-c"]
 ENV NVM_DIR ~/.nvm
 
 RUN curl --compressed -o- -L https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-RUN . $NVM_DIR/nvm.sh
+RUN $NVM_DIR/nvm.sh
 
 RUN chmod 644 /etc/systemd/resolved.conf \
     && mkdir -p ~/.npm_global \
