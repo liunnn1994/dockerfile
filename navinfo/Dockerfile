@@ -9,9 +9,9 @@ ADD navinfo/sources.list /etc/apt/
 
 RUN chmod 644 /etc/systemd/resolved.conf \
     && npm add -g npm \
-    && npm add -g pnpm \
-    && npm add -g zx \
-    && curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+    && npm add -g pnpm@8.6.1 \
+    && npm add -g yarn@1.22.19 \
+    && npm add -g zx
 
 CMD echo "nodejs 以及 npm 版本："; \
     node -v; \
