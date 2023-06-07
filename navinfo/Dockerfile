@@ -7,6 +7,8 @@ USER root:root
 ADD navinfo/resolved.conf /etc/systemd/
 ADD navinfo/sources.list /etc/apt/
 
+SHELL ["/bin/bash", "--login", "-c"]
+
 RUN chmod 644 /etc/systemd/resolved.conf \
     && mkdir -p ~/.npm_global \
     && mkdir -p ~/.npm_cache \
