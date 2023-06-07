@@ -7,6 +7,7 @@ USER root:root
 ADD navinfo/resolved.conf /etc/systemd/
 ADD navinfo/sources.list /etc/apt/
 
+SHELL ["/bin/bash", "--login", "-c"]
 ENV NVM_DIR ~/.nvm
 
 RUN chmod 644 /etc/systemd/resolved.conf \
