@@ -7,7 +7,7 @@ USER root:root
 ADD navinfo/resolved.conf /etc/systemd/
 ADD navinfo/sources.list /etc/apt/
 
-RUN curl --compressed -o- -L https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | sh
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | sh
 RUN ~/.nvm/nvm.sh
 
 RUN chmod 644 /etc/systemd/resolved.conf \
