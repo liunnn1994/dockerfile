@@ -8,7 +8,8 @@ ADD navinfo/resolved.conf /etc/systemd/
 ADD navinfo/sources.list /etc/apt/
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | sh
-RUN ~/.nvm/nvm.sh
+RUN export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 RUN chmod 644 /etc/systemd/resolved.conf \
     && mkdir -p ~/.npm_global \
