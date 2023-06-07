@@ -7,14 +7,15 @@ USER root:root
 ADD navinfo/resolved.conf /etc/systemd/
 ADD navinfo/sources.list /etc/apt/
 
-SHELL ["/bin/bash", "--login", "-c"]
+SHELL ["/bin/bash", "-c"]
 ENV NVM_DIR ~/.nvm
+
+RUN curl --compressed -o- -L https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+RUN . $NVM_DIR/nvm.sh
 
 RUN chmod 644 /etc/systemd/resolved.conf \
     && mkdir -p ~/.npm_global \
     && mkdir -p ~/.npm_cache \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
     && nvm install 14 \
     && nvm install 16 \
     && nvm install 18 \
